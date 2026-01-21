@@ -23,6 +23,8 @@ bun run db:migrate
 bun dev
 ```
 
+**Note**: This starter includes advanced features like audit logging and user management.
+
 Open [http://localhost:3000](http://localhost:3000).
 
 ## Environment Variables
