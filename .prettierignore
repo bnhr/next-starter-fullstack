@@ -1,0 +1,9 @@
+node_modules
+yarn.lock
+package-lock.json
+bun.lock
+public
+.next
+.env*
+drizzle
+*.log

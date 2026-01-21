@@ -1,0 +1,92 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "dev",
+			"group": "build",
+			"presentation": {
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": true
+			},
+			"isBackground": true,
+			"problemMatcher": [],
+			"label": "npm: dev"
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": true
+			},
+			"problemMatcher": ["$tsc"],
+			"label": "npm: build"
+		},
+		{
+			"type": "npm",
+			"script": "start",
+			"group": "build",
+			"presentation": {
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": true
+			},
+			"isBackground": true,
+			"problemMatcher": [],
+			"label": "npm: start"
+		},
+		{
+			"type": "npm",
+			"script": "lint",
+			"group": "build",
+			"presentation": {
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": true
+			},
+			"problemMatcher": ["$eslint-stylish"],
+			"label": "npm: lint"
+		},
+		{
+			"type": "npm",
+			"script": "db:generate",
+			"group": "build",
+			"presentation": {
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": true
+			},
+			"label": "npm: db:generate"
+		},
+		{
+			"type": "npm",
+			"script": "db:migrate",
+			"group": "build",
+			"presentation": {
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": true
+			},
+			"label": "npm: db:migrate"
+		},
+		{
+			"type": "npm",
+			"script": "db:studio",
+			"group": "build",
+			"presentation": {
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": true
+			},
+			"isBackground": true,
+			"label": "npm: db:studio"
+		}
+	]
+}

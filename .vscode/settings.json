@@ -1,0 +1,84 @@
+{
+	// TypeScript
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"typescript.suggest.autoImports": true,
+	"typescript.updateImportsOnFileMove.enabled": "always",
+
+	// ESLint
+	"eslint.useFlatConfig": true,
+	"eslint.workingDirectories": ["."],
+
+	// Prettier
+	"prettier.configPath": ".prettierrc.cjs",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[markdown]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+
+	// Editor
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit",
+		"source.organizeImports": "explicit"
+	},
+	"editor.tabSize": 2,
+	"editor.insertSpaces": true,
+	"editor.detectIndentation": false,
+	"files.eol": "\n",
+
+	// Files
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+
+	// Search
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/.next": true,
+		"**/drizzle": true,
+		"**/*.log": true
+	},
+
+	// Terminal
+	"terminal.integrated.shell.osx": "/bin/zsh",
+
+	// Emmet
+	"emmet.includeLanguages": {
+		"typescript": "html",
+		"typescriptreact": "html"
+	},
+
+	// Tailwind CSS
+	"tailwindCSS.includeLanguages": {
+		"typescript": "javascript",
+		"typescriptreact": "javascript"
+	},
+	"tailwindCSS.experimental.classRegex": [
+		["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+		["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+	]
+}

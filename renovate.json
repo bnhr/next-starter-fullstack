@@ -1,0 +1,12 @@
+{
+	"timezone": "Asia/Jakarta",
+	"schedule": ["every weekend"],
+	"extends": ["config:recommended"],
+	"packageRules": [
+		{
+			"matchUpdateTypes": ["major", "minor", "patch", "digest"],
+			"groupName": "all dependencies",
+			"groupSlug": "all"
+		}
+	]
+}
