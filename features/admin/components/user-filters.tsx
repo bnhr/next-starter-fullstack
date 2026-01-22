@@ -98,7 +98,7 @@ export function UserFilters({
 				</form>
 
 				<Select value={role} onValueChange={handleRoleChange} disabled={isPending}>
-					<SelectTrigger className='w-[180px]'>
+					<SelectTrigger className='w-45'>
 						<SelectValue placeholder='Select role' />
 					</SelectTrigger>
 					<SelectContent>
@@ -109,7 +109,7 @@ export function UserFilters({
 				</Select>
 
 				<Select value={banned} onValueChange={handleBannedChange} disabled={isPending}>
-					<SelectTrigger className='w-[180px]'>
+					<SelectTrigger className='w-45'>
 						<SelectValue placeholder='Select status' />
 					</SelectTrigger>
 					<SelectContent>
