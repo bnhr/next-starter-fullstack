@@ -113,7 +113,7 @@ export function UserTable({ data }: UserTableProps) {
 						table.getRowModel().rows.map((row) => (
 							<TableRow
 								key={row.id}
-								data-state={row.getIsSelected() && 'selected'}
+								data-state={row.getIsSelected() ? 'selected' : undefined}
 								className='hover:bg-muted/50 transition-colors'
 							>
 								{row.getVisibleCells().map((cell) => (

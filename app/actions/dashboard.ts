@@ -3,8 +3,16 @@
 import { db } from '@/db';
 import { users } from '@/db/schema';
 import { eq } from 'drizzle-orm';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 
 export async function getUserDashboardData(userId: string) {
+	const session = await auth.api.getSession({ headers: await headers() });
+
+	if (!session || session.user.id !== userId) {
+		throw new Error('Unauthorized');
+	}
+
 	const [user] = await db.select().from(users).where(eq(users.id, userId)).limit(1);
 
 	if (!user) {

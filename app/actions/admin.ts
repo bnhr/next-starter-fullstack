@@ -21,20 +21,28 @@ export async function getAdminStats(): Promise<AdminStats> {
 	const now = new Date();
 	const sevenDaysAgo = subDays(now, 7);
 
-	const totalUsersResult = await db.select({ count: sql<number>`count(*)` }).from(users);
-	const activeUsersResult = await db
-		.select({ count: sql<number>`count(*)` })
-		.from(users)
-		.where(eq(users.banned, false));
-	const adminUsersResult = await db
-		.select({ count: sql<number>`count(*)` })
-		.from(users)
-		.where(eq(users.role, 'admin'));
-	const recentSignupsResult = await db
-		.select({ count: sql<number>`count(*)` })
-		.from(users)
-		.where(gte(users.createdAt, sevenDaysAgo));
-	const totalAuditLogsResult = await db.select({ count: sql<number>`count(*)` }).from(auditLogs);
+	const [
+		totalUsersResult,
+		activeUsersResult,
+		adminUsersResult,
+		recentSignupsResult,
+		totalAuditLogsResult,
+	] = await Promise.all([
+		db.select({ count: sql<number>`count(*)` }).from(users),
+		db
+			.select({ count: sql<number>`count(*)` })
+			.from(users)
+			.where(eq(users.banned, false)),
+		db
+			.select({ count: sql<number>`count(*)` })
+			.from(users)
+			.where(eq(users.role, 'admin')),
+		db
+			.select({ count: sql<number>`count(*)` })
+			.from(users)
+			.where(gte(users.createdAt, sevenDaysAgo)),
+		db.select({ count: sql<number>`count(*)` }).from(auditLogs),
+	]);
 
 	return {
 		totalUsers: totalUsersResult[0]?.count || 0,
@@ -127,9 +135,10 @@ export async function getUsers(params: GetUsersParams = {}) {
 		conditions = banned === 'true' ? eq(users.banned, true) : eq(users.banned, false);
 	}
 
-	if (conditionList.length > 0 && conditions) {
+	const len = conditionList.length;
+	if (len > 0 && conditions) {
 		conditions = and(conditions, ...conditionList);
-	} else if (conditionList.length > 0) {
+	} else if (len > 0) {
 		conditions = and(...conditionList);
 	}
 

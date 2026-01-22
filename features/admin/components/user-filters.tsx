@@ -60,12 +60,12 @@ export function UserFilters({
 
 	const handleRoleChange = (value: string) => {
 		setRole(value);
-		updateFilters({ search, role: value, banned });
+		updateFilters({ search, role: value, banned: value });
 	};
 
 	const handleBannedChange = (value: string) => {
 		setBanned(value);
-		updateFilters({ search, role, banned: value });
+		updateFilters({ search, role: value, banned: value });
 	};
 
 	const handleClearFilters = () => {
