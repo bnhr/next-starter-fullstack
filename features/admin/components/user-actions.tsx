@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
+	DropdownMenuGroup,
 	DropdownMenuItem,
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
@@ -92,7 +93,9 @@ export function UserActions({ user }: UserActionsProps) {
 					<MoreHorizontal className='h-4 w-4' />
 				</DropdownMenuTrigger>
 				<DropdownMenuContent align='end'>
-					<DropdownMenuLabel>Actions</DropdownMenuLabel>
+					<DropdownMenuGroup>
+						<DropdownMenuLabel>Actions</DropdownMenuLabel>
+					</DropdownMenuGroup>
 					<DropdownMenuSeparator />
 					<DropdownMenuItem
 						render={

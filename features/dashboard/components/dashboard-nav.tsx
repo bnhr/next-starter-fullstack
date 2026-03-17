@@ -20,6 +20,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
+	DropdownMenuGroup,
 	DropdownMenuItem,
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
@@ -109,12 +110,14 @@ export function DashboardNav({ user }: DashboardNavProps) {
 								</Avatar>
 							</DropdownMenuTrigger>
 							<DropdownMenuContent align='end' className='w-56'>
-								<DropdownMenuLabel>
-									<div className='flex flex-col'>
-										<span>{user.name}</span>
-										<span className='text-muted-foreground text-xs'>{user.email}</span>
-									</div>
-								</DropdownMenuLabel>
+								<DropdownMenuGroup>
+									<DropdownMenuLabel>
+										<div className='flex flex-col'>
+											<span>{user.name}</span>
+											<span className='text-muted-foreground text-xs'>{user.email}</span>
+										</div>
+									</DropdownMenuLabel>
+								</DropdownMenuGroup>
 								<DropdownMenuSeparator />
 								<DropdownMenuItem render={<Link href='/dashboard/profile' />}>
 									<User className='mr-2 h-4 w-4' />
