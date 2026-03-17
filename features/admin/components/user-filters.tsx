@@ -58,14 +58,16 @@ export function UserFilters({
 		updateFilters({ search, role, banned });
 	};
 
-	const handleRoleChange = (value: string) => {
-		setRole(value);
-		updateFilters({ search, role: value, banned: value });
+	const handleRoleChange = (value: string | null) => {
+		const v = value ?? 'all';
+		setRole(v);
+		updateFilters({ search, role: v, banned: v });
 	};
 
-	const handleBannedChange = (value: string) => {
-		setBanned(value);
-		updateFilters({ search, role: value, banned: value });
+	const handleBannedChange = (value: string | null) => {
+		const v = value ?? 'all';
+		setBanned(v);
+		updateFilters({ search, role: v, banned: v });
 	};
 
 	const handleClearFilters = () => {

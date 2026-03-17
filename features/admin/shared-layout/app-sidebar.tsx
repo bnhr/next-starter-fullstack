@@ -87,13 +87,14 @@ export function SharedSidebar({ user, isAdmin = false, ...props }: SharedSidebar
 			<SidebarHeader>
 				<SidebarMenu>
 					<SidebarMenuItem>
-						<SidebarMenuButton asChild className='data-[slot=sidebar-menu-button]:p-1.5!'>
-							<a href={isAdmin ? '/admin' : '/dashboard'}>
-								<IconDashboard className='size-5!' />
-								<span className='text-base font-semibold'>
-									{isAdmin ? 'Admin Panel' : 'Dashboard'}
-								</span>
-							</a>
+						<SidebarMenuButton
+							render={<a href={isAdmin ? '/admin' : '/dashboard'} />}
+							className='data-[slot=sidebar-menu-button]:p-1.5!'
+						>
+							<IconDashboard className='size-5!' />
+							<span className='text-base font-semibold'>
+								{isAdmin ? 'Admin Panel' : 'Dashboard'}
+							</span>
 						</SidebarMenuButton>
 					</SidebarMenuItem>
 				</SidebarMenu>
@@ -110,11 +111,9 @@ export function SharedSidebar({ user, isAdmin = false, ...props }: SharedSidebar
 									const isActive = isExactMatch || (index > 0 && isChildMatch);
 									return (
 										<SidebarMenuItem key={item.title}>
-											<SidebarMenuButton asChild isActive={isActive}>
-												<a href={item.url}>
-													{item.icon && <item.icon className='size-4' />}
-													<span>{item.title}</span>
-												</a>
+											<SidebarMenuButton render={<a href={item.url} />} isActive={isActive}>
+												{item.icon && <item.icon className='size-4' />}
+												<span>{item.title}</span>
 											</SidebarMenuButton>
 										</SidebarMenuItem>
 									);

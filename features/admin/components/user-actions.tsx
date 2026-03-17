@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
+	DropdownMenuGroup,
 	DropdownMenuItem,
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
@@ -79,30 +80,36 @@ export function UserActions({ user }: UserActionsProps) {
 	return (
 		<>
 			<DropdownMenu>
-				<DropdownMenuTrigger asChild>
-					<Button
-						variant='ghost'
-						className='transition-smooth hover:bg-muted h-8 w-8 p-0'
-						aria-label={`Actions for ${user.name}`}
-					>
-						<span className='sr-only'>Open menu</span>
-						<MoreHorizontal className='h-4 w-4' />
-					</Button>
+				<DropdownMenuTrigger
+					render={
+						<Button
+							variant='ghost'
+							className='transition-smooth hover:bg-muted h-8 w-8 p-0'
+							aria-label={`Actions for ${user.name}`}
+						/>
+					}
+				>
+					<span className='sr-only'>Open menu</span>
+					<MoreHorizontal className='h-4 w-4' />
 				</DropdownMenuTrigger>
 				<DropdownMenuContent align='end'>
-					<DropdownMenuLabel>Actions</DropdownMenuLabel>
+					<DropdownMenuGroup>
+						<DropdownMenuLabel>Actions</DropdownMenuLabel>
+					</DropdownMenuGroup>
 					<DropdownMenuSeparator />
-					<DropdownMenuItem asChild>
-						<a href={`/admin/users/${user.id}`} aria-label={`View details for ${user.name}`}>
-							<Eye className='mr-2 h-4 w-4' />
-							View Details
-						</a>
+					<DropdownMenuItem
+						render={
+							<a href={`/admin/users/${user.id}`} aria-label={`View details for ${user.name}`} />
+						}
+					>
+						<Eye className='mr-2 h-4 w-4' />
+						View Details
 					</DropdownMenuItem>
-					<DropdownMenuItem asChild>
-						<a href={`/admin/users/${user.id}`} aria-label={`Edit ${user.name}`}>
-							<Edit className='mr-2 h-4 w-4' />
-							Edit User
-						</a>
+					<DropdownMenuItem
+						render={<a href={`/admin/users/${user.id}`} aria-label={`Edit ${user.name}`} />}
+					>
+						<Edit className='mr-2 h-4 w-4' />
+						Edit User
 					</DropdownMenuItem>
 					<DropdownMenuSeparator />
 					<DropdownMenuItem
@@ -122,14 +129,16 @@ export function UserActions({ user }: UserActionsProps) {
 							</>
 						)}
 					</DropdownMenuItem>
-					<DropdownMenuItem asChild>
-						<a
-							href={`/admin/audit?userId=${user.id}`}
-							aria-label={`View audit logs for ${user.name}`}
-						>
-							<Shield className='mr-2 h-4 w-4' />
-							View Audit Logs
-						</a>
+					<DropdownMenuItem
+						render={
+							<a
+								href={`/admin/audit?userId=${user.id}`}
+								aria-label={`View audit logs for ${user.name}`}
+							/>
+						}
+					>
+						<Shield className='mr-2 h-4 w-4' />
+						View Audit Logs
 					</DropdownMenuItem>
 					<DropdownMenuSeparator />
 					<DropdownMenuItem

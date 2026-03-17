@@ -62,11 +62,13 @@ export default async function UsersPage({ searchParams }: UsersPageProps) {
 					<h1 className='text-3xl font-bold'>Users</h1>
 					<p className='text-muted-foreground'>Manage user accounts and permissions</p>
 				</div>
-				<Button asChild className='btn-press'>
-					<Link href='/admin/users/new'>
-						<Plus className='mr-2 h-4 w-4' />
-						Add User
-					</Link>
+				<Button
+					render={<Link href='/admin/users/new' />}
+					nativeButton={false}
+					className='btn-press'
+				>
+					<Plus className='mr-2 h-4 w-4' />
+					Add User
 				</Button>
 			</div>
 
