@@ -100,13 +100,13 @@ export function DashboardNav({ user }: DashboardNavProps) {
 						)}
 
 						<DropdownMenu>
-							<DropdownMenuTrigger asChild>
-								<Button variant='ghost' className='relative h-10 w-10 rounded-full'>
-									<Avatar className='h-10 w-10'>
-										<AvatarImage src={user.image || undefined} />
-										<AvatarFallback>{user.name?.charAt(0).toUpperCase() || 'U'}</AvatarFallback>
-									</Avatar>
-								</Button>
+							<DropdownMenuTrigger
+								render={<Button variant='ghost' className='relative h-10 w-10 rounded-full' />}
+							>
+								<Avatar className='h-10 w-10'>
+									<AvatarImage src={user.image || undefined} />
+									<AvatarFallback>{user.name?.charAt(0).toUpperCase() || 'U'}</AvatarFallback>
+								</Avatar>
 							</DropdownMenuTrigger>
 							<DropdownMenuContent align='end' className='w-56'>
 								<DropdownMenuLabel>
@@ -116,24 +116,20 @@ export function DashboardNav({ user }: DashboardNavProps) {
 									</div>
 								</DropdownMenuLabel>
 								<DropdownMenuSeparator />
-								<DropdownMenuItem asChild>
-									<Link href='/dashboard/profile'>
-										<User className='mr-2 h-4 w-4' />
-										Profile
-									</Link>
+								<DropdownMenuItem render={<Link href='/dashboard/profile' />}>
+									<User className='mr-2 h-4 w-4' />
+									Profile
 								</DropdownMenuItem>
-								<DropdownMenuItem asChild>
-									<Link href='/dashboard/profile/password'>
-										<Settings className='mr-2 h-4 w-4' />
-										Settings
-									</Link>
+								<DropdownMenuItem render={<Link href='/dashboard/profile/password' />}>
+									<Settings className='mr-2 h-4 w-4' />
+									Settings
 								</DropdownMenuItem>
 								<DropdownMenuSeparator />
-								<DropdownMenuItem asChild>
-									<Link href='/api/auth/sign-out' className='text-red-600'>
-										<LogOut className='mr-2 h-4 w-4' />
-										Log out
-									</Link>
+								<DropdownMenuItem
+									render={<Link href='/api/auth/sign-out' className='text-red-600' />}
+								>
+									<LogOut className='mr-2 h-4 w-4' />
+									Log out
 								</DropdownMenuItem>
 							</DropdownMenuContent>
 						</DropdownMenu>

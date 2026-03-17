@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { signOut } from '@/app/actions/auth';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { LayoutDashboard, Users, FileText, Settings, LogOut, Shield } from 'lucide-react';
@@ -64,35 +65,34 @@ export function AdminSidebar({ user }: SidebarProps) {
 
 			<div className='border-t p-4'>
 				<DropdownMenu>
-					<DropdownMenuTrigger asChild>
-						<Button variant='ghost' className='w-full justify-start px-2'>
-							<Avatar className='mr-2 h-8 w-8'>
-								<AvatarImage src={user.image || undefined} />
-								<AvatarFallback>{user.name?.charAt(0).toUpperCase() || 'U'}</AvatarFallback>
-							</Avatar>
-							<div className='flex flex-col items-start text-left'>
-								<span className='text-sm font-medium'>{user.name}</span>
-								<span className='text-muted-foreground text-xs'>{user.email}</span>
-							</div>
-						</Button>
+					<DropdownMenuTrigger
+						render={<Button variant='ghost' className='w-full justify-start px-2' />}
+					>
+						<Avatar className='mr-2 h-8 w-8'>
+							<AvatarImage src={user.image || undefined} />
+							<AvatarFallback>{user.name?.charAt(0).toUpperCase() || 'U'}</AvatarFallback>
+						</Avatar>
+						<div className='flex flex-col items-start text-left'>
+							<span className='text-sm font-medium'>{user.name}</span>
+							<span className='text-muted-foreground text-xs'>{user.email}</span>
+						</div>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent align='end' className='w-56'>
 						<DropdownMenuLabel>My Account</DropdownMenuLabel>
 						<DropdownMenuSeparator />
-						<DropdownMenuItem asChild>
-							<Link href='/dashboard/profile'>
-								<Settings className='mr-2 h-4 w-4' />
-								Profile
-							</Link>
+						<DropdownMenuItem render={<Link href='/dashboard/profile' />}>
+							<Settings className='mr-2 h-4 w-4' />
+							Profile
 						</DropdownMenuItem>
 						<DropdownMenuSeparator />
-						<DropdownMenuItem asChild>
-							<form action='/api/auth/sign-out' method='post'>
-								<button className='flex w-full items-center'>
-									<LogOut className='mr-2 h-4 w-4' />
-									Log out
-								</button>
-							</form>
+						<DropdownMenuItem
+							onClick={async () => {
+								await signOut();
+							}}
+							className='cursor-pointer'
+						>
+							<LogOut className='mr-2 h-4 w-4' />
+							Log out
 						</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>

@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist_Mono, Inter } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/components/theme-provider';
+import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/sonner';
+import { cn } from '@/lib/utils';
 
-const geistSans = Geist({
-	variable: '--font-geist-sans',
-	subsets: ['latin'],
-});
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
-const geistMono = Geist_Mono({
-	variable: '--font-geist-mono',
+const fontMono = Geist_Mono({
 	subsets: ['latin'],
+	variable: '--font-mono',
 });
 
 export const metadata: Metadata = {
@@ -25,10 +25,18 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en'>
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-				{children}
-				<Toaster />
+		<html
+			lang='en'
+			suppressHydrationWarning
+			className={cn('antialiased', fontMono.variable, 'font-sans', inter.variable)}
+		>
+			<body>
+				<ThemeProvider>
+					<TooltipProvider>
+						{children}
+						<Toaster />
+					</TooltipProvider>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

@@ -50,9 +50,9 @@ export function UserPagination({ currentPage, totalPages, total, limit }: UserPa
 		});
 	};
 
-	const handleLimitChange = (newLimit: string) => {
+	const handleLimitChange = (newLimit: string | null) => {
 		const params = new URLSearchParams(searchParams.toString());
-		params.set('limit', newLimit);
+		params.set('limit', newLimit ?? '10');
 		params.set('page', '1');
 
 		startTransition(() => {

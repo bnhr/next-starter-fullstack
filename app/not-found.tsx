@@ -32,11 +32,9 @@ export default function NotFound() {
 					</p>
 				</CardContent>
 				<CardFooter className='flex flex-col justify-center gap-2 sm:flex-row'>
-					<Button asChild variant='default'>
-						<Link href='/'>
-							<Home className='mr-2 h-4 w-4' />
-							Go Home
-						</Link>
+					<Button render={<Link href='/' />} variant='default'>
+						<Home className='mr-2 h-4 w-4' />
+						Go Home
 					</Button>
 					<Button variant='outline' onClick={() => window.history.back()}>
 						<ArrowLeft className='mr-2 h-4 w-4' />
