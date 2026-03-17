@@ -14,6 +14,7 @@ export function QuickActions() {
 				<Button
 					variant='outline'
 					className='h-auto flex-col items-start p-4'
+					nativeButton={false}
 					render={<Link href='/dashboard/profile' />}
 				>
 					<div className='mb-2 flex items-center gap-2'>
@@ -28,6 +29,7 @@ export function QuickActions() {
 				<Button
 					variant='outline'
 					className='h-auto flex-col items-start p-4'
+					nativeButton={false}
 					render={<Link href='/dashboard/profile/password' />}
 				>
 					<div className='mb-2 flex items-center gap-2'>

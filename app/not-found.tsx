@@ -32,7 +32,7 @@ export default function NotFound() {
 					</p>
 				</CardContent>
 				<CardFooter className='flex flex-col justify-center gap-2 sm:flex-row'>
-					<Button render={<Link href='/' />} variant='default'>
+					<Button render={<Link href='/' />} nativeButton={false} variant='default'>
 						<Home className='mr-2 h-4 w-4' />
 						Go Home
 					</Button>

@@ -53,7 +53,7 @@ export default function Error({
 					<Button onClick={() => reset()} variant='default'>
 						Try Again
 					</Button>
-					<Button render={<Link href='/' />} variant='outline'>
+					<Button render={<Link href='/' />} nativeButton={false} variant='outline'>
 						Go Home
 					</Button>
 				</CardFooter>

@@ -129,7 +129,12 @@ export function UserForm({ defaultValues, action }: UserFormProps) {
 					</div>
 
 					<div className='flex justify-end gap-4'>
-						<Button type='button' variant='outline' render={<Link href='/admin/users' />}>
+						<Button
+							type='button'
+							variant='outline'
+							nativeButton={false}
+							render={<Link href='/admin/users' />}
+						>
 							Cancel
 						</Button>
 						<SubmitButton isEdit={isEdit} />
