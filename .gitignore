@@ -150,3 +150,5 @@ temp/
 
 # Sentry Config File
 .sentryclirc
+# next-agents-md
+.next-docs/
