@@ -20,7 +20,7 @@
 		"@dnd-kit/modifiers": "^9.0.0",
 		"@dnd-kit/sortable": "^10.0.0",
 		"@dnd-kit/utilities": "^3.2.2",
-		"@hookform/resolvers": "^5.2.2",
+		"@hookform/resolvers": "^7.0.0",
 		"@radix-ui/react-slot": "^1.2.4",
 		"@t3-oss/env-nextjs": "^0.13.10",
 		"@tabler/icons-react": "^3.36.1",
